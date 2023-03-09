@@ -1,0 +1,23 @@
+GLOBAL:
+  DEVICE: "cuda" # Use GPU for inference
+  OUTPUT_DIR: "output" # Output directory for saving inference results
+
+# Model configuration options
+MODEL:
+  WEIGHTS: "output/model_0004999.pth" # Path to trained model file
+  ROI_HEADS:
+    NUM_CLASSES: 4 # Number of classes in the dataset (including background)
+    SCORE_THRESH_TEST: 0.5 # Set threshold for score predictions
+
+# Dataset configuration options
+DATASETS:
+  TRAIN: ("darwin_oranges-apples-vases_train",)
+
+# DataLoader configuration options
+DATALOADER:
+  NUM_WORKERS: 2 # Number of workers to use for data loading
+
+# Inference configuration options
+# INFERENCE:
+#   DETECTIONS_PER_IMAGE: 100 # Maximum number of detections per image
+#   NMS_THRESH_TEST: 0.5 # Non-maximum suppression threshold for overlapping detections
